@@ -72,13 +72,13 @@ const wagesEarnedOnDate = function (formDate) {
 }
 
 const allWagesFor = function () {
-    const eligibleDates = this.timeInEvents.map(function (e) {
+    const eligibleDates = this.timeInEvents.map((e) => {
         return e.date
     })
 
-    const payable = eligibleDates.reduce(function (memo, d) {
+    const payable = eligibleDates.reduce((memo, d) => {
         return memo + wagesEarnedOnDate.call(this, d)
-    }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
+    }, 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
     return payable
 }
